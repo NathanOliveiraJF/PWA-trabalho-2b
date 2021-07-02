@@ -9,7 +9,7 @@ namespace PWA_trabalho_2b.Models.Item
     public class ItemEntity
     {
         public int Id { get; private set; }
-        public CategoriaEntity categoria { get; set; };
+        public CategoriaEntity categoria { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public DateTime DataFabricacao { get; set; }
