@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "Cadastro";
+}
+
+<div class="container">
+    @*@if (Model.MensagemErro != null)
+        {
+            <div class="alert alert-danger" role="alert">
+                @Model.MensagemErro
+            </div>
+        }*@
+
+    <div class="row">
+        <div class="col-lg-12">
+            <a class="btn btn-primary" asp-controller="Parametro" asp-action="Index">Voltar</a>
+        </div>
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <p class="card-header">Cadastro de Categoria</p>
+                <div class="card-body">
+                    <form method="post" asp-controller="Categoria" asp-action="Create">
+
+                        <div class="form-group">
+                            <label for="descricao">Descricao</label>
+                            <input class="form-control" type="text" name="descricao" id="descricao" />
+                        </div>
+
+                        <p class="h4">Faixa de Consumo(em kwh)</p>
+
+                        <div class="form-group">
+                            <label for="faixaConsumoAlto">Alto</label>
+                            <input class="form-control" type="text" name="faixaConsumoAlto" id="faixaConsumoAlto" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="faixaConsumoMedio">Medio</label>
+                            <input class="form-control" type="text" name="faixaConsumoMedio" id="faixaConsumoMedio" />
+                        </div>
+
+                        <input class="btn btn-primary" type="submit" value="Cadastrar" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

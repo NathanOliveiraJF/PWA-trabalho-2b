@@ -1,0 +1,63 @@
+﻿@model PWA_trabalho_2b.ViewModels.Parametro.ParametroViewModel;
+@{
+    ViewData["Title"] = "Parametros";
+}
+
+<div class="container">
+    @if (Model.MensagemSucesso != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @Model.MensagemSucesso
+        </div>
+    }
+    @if (Model.MensagemErro != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @Model.MensagemSucesso
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-lg-12">
+            <a class="btn btn-success" asp-controller="Parametro" asp-action="Create">Criar Novo Parametro</a>
+        </div>
+    </div>
+    <hr />
+    <h4>Listagem de Eventos</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Valor Kwh</th>
+                <th scope="col">Faixa de Consumo Alto(Kwh)</th>
+                <th scope="col">Faixa de Consumo Medio(Kwh)</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (@Model.Parametros.Any())
+            {
+                @foreach (var parametro in @Model.Parametros)
+                {
+                    <tr>
+                        <td>@parametro.Id</td>
+                        <td>@parametro.ValorKwh</td>
+                        <td>@parametro.FaixaConsumoAlto</td>
+                        <td>@parametro.FaixaConsumoMedio</td>
+                        <td>
+                            <a asp-controller="Parametro" asp-action="Edit" asp-route-id="@parametro.Id">Mostrar/Editar</a> |
+                            <a asp-controller="Parametro" asp-action="Delete" asp-route-id="@parametro.Id">Deletar</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <th colspan="6" class="text-center">Não há parametros cadastrados</th>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

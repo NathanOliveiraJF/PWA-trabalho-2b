@@ -1,0 +1,52 @@
+﻿@model PWA_trabalho_2b.ViewModels.Parametro.ParametroViewModel;
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<div class="container">
+    @*@if (Model.MensagemErro != null)
+        {
+            <div class="alert alert-danger" role="alert">
+                @Model.MensagemErro
+            </div>
+        }*@
+
+    <div class="row">
+        <div class="col-lg-12">
+            <a class="btn btn-primary" asp-controller="Parametro" asp-action="Index">Voltar</a>
+        </div>
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <p class="card-header">Editar de Parametro </p>
+                <div class="card-body">
+                    <form method="post" asp-controller="Parametro" asp-action="Edit" asp-route-id="@Model.Parametro.Id">
+
+                        <div class="form-group">
+                            <label for="valorKwh">Valor Kwh</label>
+                            <input class="form-control" type="number" step="any" name="valorKwh" id="valorKwh" value="@Model.Parametro.ValorKwh" />
+                        </div>
+
+                        <p class="h4">Faixa de Consumo(em kwh)</p>
+
+                        <div class="form-group">
+                            <label for="faixaConsumoAlto">Alto</label>
+                            <input class="form-control" type="text" name="faixaConsumoAlto" id="faixaConsumoAlto" value="@Model.Parametro.FaixaConsumoAlto" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="faixaConsumoMedio">Medio</label>
+                            <input class="form-control" type="text" name="faixaConsumoMedio" id="faixaConsumoMedio" value="@Model.Parametro.FaixaConsumoMedio" />
+                        </div>
+
+                        <input class="btn btn-primary" type="submit" value="Editar" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
