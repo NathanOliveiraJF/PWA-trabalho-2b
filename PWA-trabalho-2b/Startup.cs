@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PWA_trabalho_2b.Data;
+using PWA_trabalho_2b.Models;
 using PWA_trabalho_2b.Models.Categoria;
 using PWA_trabalho_2b.Models.Item;
 using PWA_trabalho_2b.Models.Parametros;
@@ -35,6 +36,8 @@ namespace PWA_trabalho_2b
             services.AddTransient<CategoriaService>();
             services.AddTransient<ItemService>();
             services.AddTransient<ParametroService>();
+            services.AddTransient<AnalisesService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

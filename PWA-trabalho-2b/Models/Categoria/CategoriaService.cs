@@ -27,6 +27,13 @@ namespace PWA_trabalho_2b.Models.Categoria
             return categoriaEntity ?? null;
         }
 
+
+        public IEnumerable<CategoriaEntity> GetByCategoriaPaiId(int id)
+        {
+            var categoriaEntity = _dbContext.Categorias.Where(x => x.CategoriaPaiId == id).ToList();
+            return categoriaEntity ?? null;
+        }
+
         public void Create(CategoriaRequestModel request)
         {
             CategoriaEntity categoriaEntity;

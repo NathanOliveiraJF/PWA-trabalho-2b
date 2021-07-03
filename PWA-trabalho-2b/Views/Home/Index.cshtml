@@ -1,42 +1,129 @@
-﻿@{
+﻿@model PWA_trabalho_2b.ViewModels.Home.ResultadoFinalViewModel
+
+@{
     ViewData["Title"] = "Home";
     ViewData["Classes"] = "background";
 }
 
-<div class="">
+<div class="container">
     <h1 class="text-center display-1 main-title">MGE</h1>
+
     
-    <div class="row">
-        <div class="col-4">
-            <div class="card m-2">
-                <div class="card-header">Resumo do consumo</div>
-                <div class="card-body">
-                    <p class="card-text">Resumo do consumo do mês:</p>
-                    <ul class="list-unstyled">
-                        <li>Total em Watts:</li>
-                        <li>Total em R$: </li>
-                        <li>Faixa de consumo:</li>
-                    </ul>
-                </div>
+        <div class="card m-2">
+            <div class="card-header">Resumo do consumo</div>
+            <div class="card-body">
+                <p class="card-text">Resumo do consumo do mês:</p>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Item</th>
+                            <th scope="col">Total Gastos</th>
+                            <th scope="col">Valor Reais Mensal</th>
+                            <th scope="col">Faixa</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (@Model.ConsumoTotalEnergia.lista.Any())
+                        {
+                            @foreach (var item in @Model.ConsumoTotalEnergia.lista)
+                            {
+                        <tr>
+
+                            <td>@item.Item</td>
+                            <td>@item.TotalGastos </td>
+                            <td>@item.ValorReaisMensal </td>
+                            <td>@item.Faixa  </td>
+
+                        </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <th colspan="6" class="text-center">Não há item cadastradas</th>
+                            </tr>
+                        }
+
+                </table>
             </div>
         </div>
+      
         
-        <div class="col-4">
-            <div class="card m-2">
-                <div class="card-header">Top categorias</div>
-                <div class="card-body">
-                    <p class="card-text">Estas são as três categorias que mais consomem energia:</p>
-                </div>
+    
+        <div class="card m-2">
+            <div class="card-header">Top categorias</div>
+            <div class="card-body">
+                <p class="card-text">Estas são as três categorias que mais consomem energia:</p>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Consumo Mensal Kwh</th>
+                            <th scope="col">Valor Mensal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (@Model.CategoriaMaisConsome.lista.Any())
+                        {
+                            @foreach (var item in @Model.CategoriaMaisConsome.lista)
+                            {
+                                <tr>
+
+                                    <td>@item.Categoria</td>
+                                    <td>@item.ConsumoMensalWatts</td>
+                                    <td>@item.ValorMensalKwh</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <th colspan="6" class="text-center">Não há Categoria cadastradas</th>
+                            </tr>
+                        }
+
+                </table>
+
             </div>
         </div>
-        
-        <div class="col-4">
-            <div class="card m-2">
-                <div class="card-header">Top itens</div>
-                <div class="card-body">
-                    <p class="card-text">Estes são os três itens que mais consomem energia:</p>
-                </div>
+   
+
+   
+        <div class="card m-2">
+            <div class="card-header">Top itens</div>
+            <div class="card-body">
+                <p class="card-text">Estes são os três itens que mais consomem energia:</p>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Item</th>
+                            <th scope="col">Consumo Mensal Kwh</th>
+                            <th scope="col">Valor Mensal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (@Model.ItemMaisConsome.lista.Any())
+                        {
+                            @foreach (var item in @Model.ItemMaisConsome.lista)
+                            {
+                                <tr>
+
+                                    <td>@item.Item</td>
+                                    <td>@item.ConsumoMensalWatts</td>
+                                    <td>@item.ValorMensalKwh</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <th colspan="6" class="text-center">Não há Itens cadastradas</th>
+                            </tr>
+                        }
+
+                </table>
             </div>
         </div>
-    </div>
 </div>

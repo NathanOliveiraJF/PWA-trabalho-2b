@@ -1,0 +1,66 @@
+﻿@model PWA_trabalho_2b.ViewModels.Item.ItemViewModel
+@{
+    ViewData["Title"] = "Parametros";
+}
+
+<div class="container">
+    @if (Model.MensagemSucesso != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @Model.MensagemSucesso
+        </div>
+    }
+    @if (Model.MensagemErro != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @Model.MensagemSucesso
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-lg-12">
+            <a class="btn btn-success" asp-controller="Item" asp-action="Create">Criar Novo Item</a>
+        </div>
+    </div>
+    <hr />
+    <h4>Listagem de itens</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Consumo em Watts</th>
+                <th scope="col">Horas de Uso Diario</th>
+                <th scope="col">Data de Fabricação</th>
+
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (@Model.Itens.Any())
+            {
+                @foreach (var item in @Model.Itens)
+                {
+            <tr>
+                <td>@item.ConsumoWatts</td>
+                <td>@item.Categoria</td>
+                <td>@item.ConsumoWatts</td>
+                <td>@item.HorasUsoDiario</td>
+                <td>@item.DataFabricacao</td>
+                <td>
+                    <a  title="Visualizar e editar" class="mr-2" asp-controller="Item" asp-action="Edit" asp-route-id="@item.Id"> <i class="bi bi-pencil-square"></i> </a> 
+                    <a  title="Remover" class="text-danger mr-2" asp-controller="Item" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <th colspan="6" class="text-center">Não há Itens cadastrados</th>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,66 @@
+﻿@model PWA_trabalho_2b.ViewModels.Item.ItemViewModel;
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<div class="container">
+    @*@if (Model.MensagemErro != null)
+        {
+            <div class="alert alert-danger" role="alert">
+                @Model.MensagemErro
+            </div>
+        }*@
+
+    <div class="row">
+        <div class="col-lg-12">
+            <a class="btn btn-primary" asp-controller="Item" asp-action="Index">Voltar</a>
+        </div>
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <p class="card-header">Editar de Item </p>
+                <div class="card-body">
+                    <form method="post" asp-controller="Item" asp-action="Edit" asp-route-id="@Model.Item.Id">
+
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input class="form-control" name="nome" id="nome" value="@Model.Item.Nome" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="categoria">Categoria</label>
+                            <select class="custom-select custom-select" id="categoriaId" name="categoriaId" asp-items="@Model.Categorias"></select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descricao">Descrição</label>
+                            <input class="form-control" type="text" name="descricao" id="descricao" value="@Model.Item.Descricao" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dataFabricacao">Data de Fabricação</label>
+                            <input class="form-control" type="date" name="dataFabricacao" id="dataFabricacao" value="@Model.Item.DataFabricacao" />
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="consumoWatts">Consumo Watts</label>
+                            <input class="form-control" type="text" name="consumoWatts" id="consumoWatts" value="@Model.Item.ConsumoWatts" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="horasUsoDiario">Horas de Uso Diario</label>
+                            <input class="form-control" type="number" name="horasUsoDiario" id="horasUsoDiario" value="@Model.Item.HorasUsoDiario" />
+                        </div>
+
+                        <input class="btn btn-primary" type="submit" value="Editar" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

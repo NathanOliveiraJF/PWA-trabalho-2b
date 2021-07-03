@@ -28,7 +28,8 @@ namespace PWA_trabalho_2b.Controllers
             var viewModel = new CategoriaViewModel
             {
                 //MENSAGEM VINDA DO CREATE(POST)
-                MensagemSucesso = (string)TempData["MensagemSucesso"]
+                MensagemSucesso = (string)TempData["MensagemSucesso"],
+                MensagemErro = (string)TempData["MensagemErro"],
             };
 
             //ALIMENTANDO A LISTAGEM DE CATEGORIAS PARA TELA
@@ -46,7 +47,6 @@ namespace PWA_trabalho_2b.Controllers
 
             return View(viewModel);
         }
-
 
 
         //CHAMA PAGINA CREATE(CATEGORIAS)
@@ -128,6 +128,15 @@ namespace PWA_trabalho_2b.Controllers
         [HttpGet]
         public RedirectToActionResult Delete(int id)
         {
+
+            var list = _categoriaService.GetByCategoriaPaiId(id);
+
+            if(list.Any())
+            {
+                TempData["MensagemErro"] = "Em uso, não pode ser deletado!";
+                return RedirectToAction("Index");
+            }
+
             _categoriaService.Delete(id);
 
             //RETORNA MENSAGEM PARA O INDEX

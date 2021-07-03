@@ -21,6 +21,13 @@ namespace PWA_trabalho_2b.Models.Parametros
             return _dbContext.Parametros;
         }
 
+        public ParametroEntity GetAtivo()
+        {
+            var list = _dbContext.Parametros.ToList();
+
+            return list.Last();
+        }
+
 
         public ParametroEntity GetById(int id)
         {
