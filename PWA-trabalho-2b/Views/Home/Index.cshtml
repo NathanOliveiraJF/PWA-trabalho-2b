@@ -1,8 +1,42 @@
 ﻿@{
     ViewData["Title"] = "Home";
+    ViewData["Classes"] = "background";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Mais consomem</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="">
+    <h1 class="text-center display-1 main-title">MGE</h1>
+    
+    <div class="row">
+        <div class="col-4">
+            <div class="card m-2">
+                <div class="card-header">Resumo do consumo</div>
+                <div class="card-body">
+                    <p class="card-text">Resumo do consumo do mês:</p>
+                    <ul class="list-unstyled">
+                        <li>Total em Watts:</li>
+                        <li>Total em R$: </li>
+                        <li>Faixa de consumo:</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-4">
+            <div class="card m-2">
+                <div class="card-header">Top categorias</div>
+                <div class="card-body">
+                    <p class="card-text">Estas são as três categorias que mais consomem energia:</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-4">
+            <div class="card m-2">
+                <div class="card-header">Top itens</div>
+                <div class="card-body">
+                    <p class="card-text">Estes são os três itens que mais consomem energia:</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

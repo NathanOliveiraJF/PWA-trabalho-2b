@@ -45,8 +45,8 @@
                         <td>@parametro.FaixaConsumoAlto</td>
                         <td>@parametro.FaixaConsumoMedio</td>
                         <td>
-                            <a asp-controller="Parametro" asp-action="Edit" asp-route-id="@parametro.Id">Mostrar/Editar</a> |
-                            <a asp-controller="Parametro" asp-action="Delete" asp-route-id="@parametro.Id">Deletar</a>
+                            <a title="Visualizar e editar" class="mr-2" asp-controller="Parametro" asp-action="Edit" asp-route-id="@parametro.Id"><i class="bi bi-pencil-square"></i></a>
+                            <a title="Remover" class="text-danger mr-2" asp-controller="Parametro" asp-action="Delete" asp-route-id="@parametro.Id"><i class="bi bi-trash"></i></a>
                         </td>
                     </tr>
                 }
