@@ -1,4 +1,5 @@
-﻿
+﻿@model PWA_trabalho_2b.ViewModels.Categoria.CategoriaViewModel
+
 @{
     ViewData["Title"] = "Cadastro";
 }
@@ -13,7 +14,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <a class="btn btn-primary" asp-controller="Parametro" asp-action="Index">Voltar</a>
+            <a class="btn btn-primary" asp-controller="Categoria" asp-action="Index">Voltar</a>
         </div>
     </div>
     <hr />
@@ -30,16 +31,9 @@
                             <input class="form-control" type="text" name="descricao" id="descricao" />
                         </div>
 
-                        <p class="h4">Faixa de Consumo(em kwh)</p>
-
                         <div class="form-group">
-                            <label for="faixaConsumoAlto">Alto</label>
-                            <input class="form-control" type="text" name="faixaConsumoAlto" id="faixaConsumoAlto" />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="faixaConsumoMedio">Medio</label>
-                            <input class="form-control" type="text" name="faixaConsumoMedio" id="faixaConsumoMedio" />
+                            <label for="categoriaPai">Categoria Pai</label>
+                            <select class="custom-select custom-select" id="categoriaPaiId" name="categoriaPaiId" asp-items="@Model.CategoriasPai"></select>
                         </div>
 
                         <input class="btn btn-primary" type="submit" value="Cadastrar" />
